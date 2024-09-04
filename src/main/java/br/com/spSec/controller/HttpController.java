@@ -21,22 +21,21 @@ public class HttpController {
     @GetMapping("/cookie")
     String cookie(@AuthenticationPrincipal OidcUser principal) {
         return String.format("""
-						<h1><b><i>PRIVATE  ROUTE</i></b></h1>
-						<h3>Principal: %s</h3><br>
-						<h3>E-mail attribute: %s</h3><br>
-						<h3>Authorities: %s</h3><br>
-						<h3>JWT: %s</h3>
-						
-						""", principal, principal.getAttribute("email"), principal.getAuthorities(),
+					<h1>Oauth2 🔐  </h1>
+				<h3>Principal: %s</h3>
+				<h3>E-mail attribute: %s</h3>
+				<h3>Authorities: %s</h3>
+				<h3>JWT: %s</h3>
+				""", principal, principal.getAttribute("email"), principal.getAuthorities(),
                 principal.getIdToken().getTokenValue());
     }
 
     @GetMapping("/jwt")
     String jwt(@AuthenticationPrincipal Jwt jwt) {
         return String.format("""
-				<h1>JWT</h1>
-				<h3>Principal: %s</h3><br>
-				<h3>E-mail attribute: %s</h3><br>
+				Principal: %s\n
+				Email attribute: %s\n
+				JWT: %s\n
 				""", jwt.getClaims(), jwt.getClaim("email"), jwt.getTokenValue());
     }
 }
