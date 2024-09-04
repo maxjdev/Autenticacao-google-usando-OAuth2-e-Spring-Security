@@ -1,0 +1,8 @@
+spring:
+    security:
+        oauth2:
+            client:
+                registration:
+                    google:
+                        client-id: <GOOGLE CLIENT-ID>
+                        client-secret: <GOOGLE CLIENT-SECRET>
