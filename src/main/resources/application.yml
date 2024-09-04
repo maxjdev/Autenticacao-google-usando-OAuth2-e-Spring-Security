@@ -6,3 +6,6 @@ spring:
                     google:
                         client-id: <GOOGLE CLIENT-ID>
                         client-secret: <GOOGLE CLIENT-SECRET>
+            resourceserver:
+                jwt:
+                    issuer-uri: https://accounts.google.com
